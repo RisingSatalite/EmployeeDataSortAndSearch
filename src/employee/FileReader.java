@@ -2,7 +2,8 @@ package employee;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner; 
+import java.util.Scanner;
+import employee.Employee;
 
 public class FileReader {
 	public static void main(String[] args) {
