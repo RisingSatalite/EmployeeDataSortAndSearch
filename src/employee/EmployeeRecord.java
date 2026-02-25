@@ -3,13 +3,13 @@ package employee;
 public class EmployeeRecord {
 	int ID;
 	String name;
-	int hoursWorked;
+	float hoursWorked;
 	float hourlyRate;
 	float deductionProvince;
 	float deductionFederal;
-	int educationAllowance;
+	float educationAllowance;
 	
-	EmployeeRecord(int ID, String name, int hoursWorked, float hourlyRate, float deductionProvince, float deductionFederal, int educationAllowance){
+	EmployeeRecord(int ID, String name, float hoursWorked, float hourlyRate, float deductionProvince, float deductionFederal, float educationAllowance){
 		this.ID = ID;
 		this.name = name;
 		this.hoursWorked = hoursWorked;
@@ -27,7 +27,7 @@ public class EmployeeRecord {
 		return this.name;
 	}
 	
-	public int getHoursWorked() {
+	public float getHoursWorked() {
 		return this.hoursWorked;
 	}
 	
@@ -43,7 +43,7 @@ public class EmployeeRecord {
 		return this.deductionProvince;
 	}
 	
-	public int getEducationAllowance() {
+	public float getEducationAllowance() {
 		return this.educationAllowance;
 	}
 	
@@ -55,7 +55,7 @@ public class EmployeeRecord {
 		this.name= NewName;
 	}
 	
-	public void setHoursWorked(int hoursWorked) {
+	public void setHoursWorked(float hoursWorked) {
 		this.hoursWorked = hoursWorked;
 	}
 	
@@ -71,7 +71,7 @@ public class EmployeeRecord {
 		this.deductionProvince = deductionProvince;
 	}
 	
-	public void setEducationAllowance(int educationAllowance) {
+	public void setEducationAllowance(float educationAllowance) {
 		this.educationAllowance = educationAllowance;
 	}
 }

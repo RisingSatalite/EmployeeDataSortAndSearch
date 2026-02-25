@@ -20,11 +20,11 @@ public class EmployeeDataFileReader {
 	        	  EmployeeList.add(new EmployeeRecord(
 	        			  Integer.parseInt(dataParts[0]),
 	        			  dataParts[1],
-	        			  Integer.parseInt(dataParts[2]),
+	        			  Float.parseFloat(dataParts[2]),
 	        			  Float.parseFloat(dataParts[3]),
 	        			  Float.parseFloat(dataParts[4]),
 	        			  Float.parseFloat(dataParts[5]),
-	        			  Integer.parseInt(dataParts[6])
+	        			  Float.parseFloat(dataParts[6])
 	        	  ));
 	        	  System.out.println("Employee added to system");
 	          }else {
@@ -52,11 +52,11 @@ public class EmployeeDataFileReader {
 	        	  EmployeeList.add(new EmployeeRecord(
 	        			  Integer.parseInt(dataParts[0]),
 	        			  dataParts[1],
-	        			  Integer.parseInt(dataParts[2]),
+	        			  Float.parseFloat(dataParts[2]),
 	        			  Float.parseFloat(dataParts[3]),
 	        			  Float.parseFloat(dataParts[4]),
 	        			  Float.parseFloat(dataParts[5]),
-	        			  Integer.parseInt(dataParts[6])
+	        			  Float.parseFloat(dataParts[6])
 	        			));
 	        	  System.out.println("Employee added to system");
 	          }else {
