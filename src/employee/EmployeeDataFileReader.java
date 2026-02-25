@@ -8,27 +8,27 @@ import java.util.Scanner;
 public class EmployeeDataFileReader {
 
 	public ArrayList<EmployeeRecord> returnArrayFromFile() {
-		File myObj = new File("employeeList/employeesWithoutRepeat.txt");  
+		File myObj = new File("employeeList/employeesWithRepeat.txt");  
 		ArrayList<EmployeeRecord> EmployeeList = new ArrayList<>();
 	    
 	    try (Scanner myReader = new Scanner(myObj)) {
 	        while (myReader.hasNextLine()) {
 	          String data = myReader.nextLine();
-	          System.out.println(data);
+	          //System.out.println(data);
 	          String[] dataParts = data.split(",");
 	          if(dataParts.length == 7) {
-	        	  EmployeeList.add(new EmployeeRecord(
+	        	  EmployeeRecord em = new EmployeeRecord(
 	        			  Integer.parseInt(dataParts[0]),
 	        			  dataParts[1],
 	        			  Float.parseFloat(dataParts[2]),
 	        			  Float.parseFloat(dataParts[3]),
 	        			  Float.parseFloat(dataParts[4]),
 	        			  Float.parseFloat(dataParts[5]),
-	        			  Float.parseFloat(dataParts[6])
-	        	  ));
-	        	  System.out.println("Employee added to system");
+	        			  Float.parseFloat(dataParts[6]));
+	        	  EmployeeList.add(em);
+	        	  System.out.println("Employee added to system:" + em.toString());
 	          }else {
-	        	  System.out.println("This data does not have 7 data pieces");
+	        	  System.out.println("This data does not have 7 data pieces, and is incomplete");
 	          }
 	        }
 	      } catch (FileNotFoundException e) {

@@ -74,4 +74,9 @@ public class EmployeeRecord {
 	public void setEducationAllowance(float educationAllowance) {
 		this.educationAllowance = educationAllowance;
 	}
+	
+	@Override
+    public String toString() {
+        return ID + " " + name + " " + hoursWorked + " " + hourlyRate + " " + deductionProvince + " " + deductionFederal + " " + educationAllowance;
+    }
 }
