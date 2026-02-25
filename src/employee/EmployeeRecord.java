@@ -1,6 +1,6 @@
 package employee;
 
-public class Employee {
+public class EmployeeRecord {
 	int ID;
 	String name;
 	int hoursWorked;
@@ -9,7 +9,7 @@ public class Employee {
 	float deductionFederal;
 	int educationAllowance;
 	
-	Employee(int ID, String name, int hoursWorked, float hourlyRate, float deductionProvince, float deductionFederal, int educationAllowance){
+	EmployeeRecord(int ID, String name, int hoursWorked, float hourlyRate, float deductionProvince, float deductionFederal, int educationAllowance){
 		this.ID = ID;
 		this.name = name;
 		this.hoursWorked = hoursWorked;

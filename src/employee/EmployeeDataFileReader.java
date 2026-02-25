@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileReader {
+public class EmployeeDataFileReader {
 
-	public ArrayList<Employee> returnArrayFromFile() {
+	public ArrayList<EmployeeRecord> returnArrayFromFile() {
 		File myObj = new File("employeeList/employeesWithoutRepeat.txt");  
-		ArrayList<Employee> EmployeeList = new ArrayList<>();
+		ArrayList<EmployeeRecord> EmployeeList = new ArrayList<>();
 	    
 	    try (Scanner myReader = new Scanner(myObj)) {
 	        while (myReader.hasNextLine()) {
@@ -17,7 +17,7 @@ public class FileReader {
 	          System.out.println(data);
 	          String[] dataParts = data.split(",");
 	          if(dataParts.length == 7) {
-	        	  EmployeeList.add(new Employee(
+	        	  EmployeeList.add(new EmployeeRecord(
 	        			  Integer.parseInt(dataParts[0]),
 	        			  dataParts[1],
 	        			  Integer.parseInt(dataParts[2]),
@@ -39,9 +39,9 @@ public class FileReader {
 		return EmployeeList;
 	}
 	
-	public ArrayList<Employee>returnArrayFromFile(String file) {
+	public ArrayList<EmployeeRecord>returnArrayFromFile(String file) {
 		File myObj = new File(file);
-		ArrayList<Employee> EmployeeList = new ArrayList<>();
+		ArrayList<EmployeeRecord> EmployeeList = new ArrayList<>();
 	    
 		try (Scanner myReader = new Scanner(myObj)) {
 	        while (myReader.hasNextLine()) {
@@ -49,7 +49,7 @@ public class FileReader {
 	          System.out.println(data);
 	          String[] dataParts = data.split(",");
 	          if(dataParts.length == 7) {
-	        	  EmployeeList.add(new Employee(
+	        	  EmployeeList.add(new EmployeeRecord(
 	        			  Integer.parseInt(dataParts[0]),
 	        			  dataParts[1],
 	        			  Integer.parseInt(dataParts[2]),
@@ -70,9 +70,12 @@ public class FileReader {
 		return EmployeeList;
 	}
 	public static void main(String[] args) {
-		FileReader reader = new FileReader();
+		String currentDir = System.getProperty("user.dir");
+        System.out.println("Current working directory: " + currentDir);
+		
+		EmployeeDataFileReader  reader = new EmployeeDataFileReader ();
 		@SuppressWarnings("unused")//This is an example way to get the data
-		ArrayList<Employee> ArrayList= reader.returnArrayFromFile();
+		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
 	    
 	}
 
