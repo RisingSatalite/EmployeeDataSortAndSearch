@@ -1,6 +1,6 @@
 package employee;
 
-public class EmployeeRecord {
+public class EmployeeRecord implements Comparable<EmployeeRecord> {
 	int ID;
 	String name;
 	float hoursWorked;
@@ -79,4 +79,10 @@ public class EmployeeRecord {
     public String toString() {
         return ID + " " + name + " " + hoursWorked + " " + hourlyRate + " " + deductionProvince + " " + deductionFederal + " " + educationAllowance;
     }
+
+	@Override
+	public int compareTo(EmployeeRecord o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
