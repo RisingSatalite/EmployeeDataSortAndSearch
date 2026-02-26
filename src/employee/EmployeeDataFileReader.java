@@ -47,11 +47,27 @@ public class EmployeeDataFileReader {
         System.out.println("Current working directory: " + currentDir);
 		
 		EmployeeDataFileReader  reader = new EmployeeDataFileReader ();
-		@SuppressWarnings("unused")//This is an example way to get the data
+	
 		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
 		
+    //Export functionality example
 		exportToCSV exportToCSV = new exportToCSV();
 		exportToCSV.dataToCSV(ArrayList, "employeeData.csv");
+    
+		EmployeeRecord[] employeeArray = ArrayList.toArray(new EmployeeRecord[0]);
+
+		System.out.println("\n--- Sorting Employees by Calculated Salary ---");
+
+		// Log time
+        long startTime = System.currentTimeMillis();
+        SelectionSort.sort(employeeArray);
+        long endTime = System.currentTimeMillis();
+        
+        
+        for (EmployeeRecord em : employeeArray) {
+            System.out.println(em.toString() + " | Calculated Salary: " + em.calcHourlySalary());
+        }
+		System.out.println("Selection Sort Running Time: " + (endTime - startTime) + "ms");
 	}
 
 }
