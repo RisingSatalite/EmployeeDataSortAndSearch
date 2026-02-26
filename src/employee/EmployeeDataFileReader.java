@@ -8,35 +8,7 @@ import java.util.Scanner;
 public class EmployeeDataFileReader {
 
 	public ArrayList<EmployeeRecord> returnArrayFromFile() {
-		File myObj = new File("employeeList/employeesWithRepeat.txt");  
-		ArrayList<EmployeeRecord> EmployeeList = new ArrayList<>();
-	    
-	    try (Scanner myReader = new Scanner(myObj)) {
-	        while (myReader.hasNextLine()) {
-	          String data = myReader.nextLine();
-	          //System.out.println(data);
-	          String[] dataParts = data.split(",");
-	          if(dataParts.length == 7) {
-	        	  EmployeeRecord em = new EmployeeRecord(
-	        			  Integer.parseInt(dataParts[0]),
-	        			  dataParts[1],
-	        			  Float.parseFloat(dataParts[2]),
-	        			  Float.parseFloat(dataParts[3]),
-	        			  Float.parseFloat(dataParts[4]),
-	        			  Float.parseFloat(dataParts[5]),
-	        			  Float.parseFloat(dataParts[6]));
-	        	  EmployeeList.add(em);
-	        	  System.out.println("Employee added to system:" + em.toString());
-	          }else {
-	        	  System.out.println("This data does not have 7 data pieces, and is incomplete");
-	          }
-	        }
-	      } catch (FileNotFoundException e) {
-	        System.out.println("An error occurred.");
-	        e.printStackTrace();
-	      }
-
-		return EmployeeList;
+		return this.returnArrayFromFile("employeeList/employeesWithRepeat.txt");
 	}
 	
 	public ArrayList<EmployeeRecord>returnArrayFromFile(String file) {
@@ -69,6 +41,7 @@ public class EmployeeDataFileReader {
 	      }
 		return EmployeeList;
 	}
+	
 	public static void main(String[] args) {
 		String currentDir = System.getProperty("user.dir");
         System.out.println("Current working directory: " + currentDir);
@@ -76,6 +49,11 @@ public class EmployeeDataFileReader {
 		EmployeeDataFileReader  reader = new EmployeeDataFileReader ();
 	
 		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
+		
+    //Export functionality example
+		exportToCSV exportToCSV = new exportToCSV();
+		exportToCSV.dataToCSV(ArrayList, "employeeData.csv");
+    
 		EmployeeRecord[] employeeArray = ArrayList.toArray(new EmployeeRecord[0]);
 
 		System.out.println("\n--- Sorting Employees by Calculated Salary ---");
