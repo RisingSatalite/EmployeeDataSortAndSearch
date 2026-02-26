@@ -79,6 +79,10 @@ public class EmployeeRecord implements Comparable<EmployeeRecord> {
     public String toString() {
         return ID + " " + name + " " + hoursWorked + " " + hourlyRate + " " + deductionProvince + " " + deductionFederal + " " + educationAllowance;
     }
+	
+	public String exportCSVdata() {
+		return ID + "," + name + "," + hoursWorked + "," + hourlyRate + "," + deductionProvince + "," + deductionFederal + "," + educationAllowance + "\n";
+	}
 
 	@Override
 	public int compareTo(EmployeeRecord o) {
