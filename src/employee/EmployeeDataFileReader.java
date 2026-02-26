@@ -41,6 +41,7 @@ public class EmployeeDataFileReader {
 	      }
 		return EmployeeList;
 	}
+	
 	public static void main(String[] args) {
 		String currentDir = System.getProperty("user.dir");
         System.out.println("Current working directory: " + currentDir);
@@ -48,7 +49,9 @@ public class EmployeeDataFileReader {
 		EmployeeDataFileReader  reader = new EmployeeDataFileReader ();
 		@SuppressWarnings("unused")//This is an example way to get the data
 		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
-	    
+		
+		exportToCSV exportToCSV = new exportToCSV();
+		exportToCSV.dataToCSV(ArrayList, "employeeData.csv");
 	}
 
 }
