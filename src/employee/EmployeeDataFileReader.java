@@ -50,7 +50,7 @@ public class EmployeeDataFileReader {
 	
 		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
 		
-    //Export functionality example
+		//Export functionality example
 		exportToCSV exportToCSV = new exportToCSV();
 		exportToCSV.dataToCSV(ArrayList, "employeeData.csv");
     
