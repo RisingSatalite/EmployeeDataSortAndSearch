@@ -87,14 +87,8 @@ public class EmployeeRecord implements Comparable<EmployeeRecord> {
     public float calcHourlySalary() {
     return (this.hourlyRate + this.educationAllowance) - (this.deductionProvince + this.deductionFederal);
 }
-	@Override
-	public int compareTo(EmployeeRecord o) {
-		// Compared based on employee calculated hourly salary.
-		float thisSalary = this.calcHourlySalary();
-		float otherSalary = o.calcHourlySalary();
-
-		if (thisSalary < otherSalary) return -1;
-		if (thisSalary > otherSalary) return 1;
-		return 0;
-	}
+    @Override
+    public int compareTo(EmployeeRecord o) {
+        return this.name.compareToIgnoreCase(o.name);
+    }
 }

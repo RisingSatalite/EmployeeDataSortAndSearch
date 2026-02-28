@@ -50,24 +50,23 @@ public class EmployeeDataFileReader {
 	
 		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
 		
-    //Export functionality example
+		//Export functionality example
 		exportToCSV exportToCSV = new exportToCSV();
 		exportToCSV.dataToCSV(ArrayList, "employeeData.csv");
     
 		EmployeeRecord[] employeeArray = ArrayList.toArray(new EmployeeRecord[0]);
 
-		System.out.println("\n--- Sorting Employees by Calculated Salary ---");
+		System.out.println("\n--- Sorting Employees by Name (Quick Sort) ---");
 
-		// Log time
-        long startTime = System.currentTimeMillis();
-        SelectionSort.sort(employeeArray);
-        long endTime = System.currentTimeMillis();
-        
-        
-        for (EmployeeRecord em : employeeArray) {
-            System.out.println(em.toString() + " | Calculated Salary: " + em.calcHourlySalary());
-        }
-		System.out.println("Selection Sort Running Time: " + (endTime - startTime) + "ms");
+		long startTime = System.currentTimeMillis();
+		QuickSort.sort(employeeArray);
+		long endTime = System.currentTimeMillis();
+
+		for (EmployeeRecord em : employeeArray) {
+		    System.out.println(em.toString());
+		}
+
+		System.out.println("Quick Sort Running Time: " + (endTime - startTime) + "ms");
 	}
 
 }
