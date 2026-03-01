@@ -71,9 +71,9 @@ public class EmployeeDataFileReader {
 
         System.out.println("\n--- Sorting Employees by Name (Quick Sort) ---");
 
-		long startTime = System.currentTimeMillis();
+		startTime = System.currentTimeMillis();
 		QuickSort.sort(employeeArray);
-		long endTime = System.currentTimeMillis();
+		endTime = System.currentTimeMillis();
 
 		for (EmployeeRecord em : employeeArray) {
 		    System.out.println(em.toString());
@@ -81,4 +81,5 @@ public class EmployeeDataFileReader {
 
 		System.out.println("Quick Sort Running Time: " + (endTime - startTime) + "ms");
 	}
+
 }
