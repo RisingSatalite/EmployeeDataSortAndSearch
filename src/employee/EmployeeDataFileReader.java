@@ -56,7 +56,20 @@ public class EmployeeDataFileReader {
     
 		EmployeeRecord[] employeeArray = ArrayList.toArray(new EmployeeRecord[0]);
 
-		System.out.println("\n--- Sorting Employees by Name (Quick Sort) ---");
+		System.out.println("\n--- Sorting Employees by Calculated Salary ---");
+
+		// Log time
+        long startTime = System.currentTimeMillis();
+        SelectionSort.sort(employeeArray);
+        long endTime = System.currentTimeMillis();
+        
+        
+        for (EmployeeRecord em : employeeArray) {
+            System.out.println(em.toString() + " | Calculated Salary: " + em.calcHourlySalary());
+        }
+		System.out.println("Selection Sort Running Time: " + (endTime - startTime) + "ms");
+
+        System.out.println("\n--- Sorting Employees by Name (Quick Sort) ---");
 
 		long startTime = System.currentTimeMillis();
 		QuickSort.sort(employeeArray);
@@ -68,5 +81,4 @@ public class EmployeeDataFileReader {
 
 		System.out.println("Quick Sort Running Time: " + (endTime - startTime) + "ms");
 	}
-
 }
