@@ -68,6 +68,17 @@ public class EmployeeDataFileReader {
             System.out.println(em.toString() + " | Calculated Salary: " + em.calcHourlySalary());
         }
 		System.out.println("Selection Sort Running Time: " + (endTime - startTime) + "ms");
-	}
 
+        System.out.println("\n--- Sorting Employees by Name (Quick Sort) ---");
+
+		long startTime = System.currentTimeMillis();
+		QuickSort.sort(employeeArray);
+		long endTime = System.currentTimeMillis();
+
+		for (EmployeeRecord em : employeeArray) {
+		    System.out.println(em.toString());
+		}
+
+		System.out.println("Quick Sort Running Time: " + (endTime - startTime) + "ms");
+	}
 }
