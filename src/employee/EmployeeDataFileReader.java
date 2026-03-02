@@ -18,7 +18,7 @@ public class EmployeeDataFileReader {
 		try (Scanner myReader = new Scanner(myObj)) {
 	        while (myReader.hasNextLine()) {
 	          String data = myReader.nextLine();
-	          System.out.println(data);
+	          //System.out.println(data);
 	          String[] dataParts = data.split(",");
 	          if(dataParts.length == 7) {
 	        	  EmployeeList.add(new EmployeeRecord(
@@ -30,9 +30,9 @@ public class EmployeeDataFileReader {
 	        			  Float.parseFloat(dataParts[5]),
 	        			  Float.parseFloat(dataParts[6])
 	        			));
-	        	  System.out.println("Employee added to system");
+	        	  //System.out.println("Employee added to system");
 	          }else {
-	        	  System.out.println("This data does not have 7 data pieces");
+	        	  System.out.println("This data does not have correct amount of data");
 	          }
 	        }
 	      } catch (FileNotFoundException e) {
