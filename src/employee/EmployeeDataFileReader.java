@@ -18,7 +18,7 @@ public class EmployeeDataFileReader {
 		try (Scanner myReader = new Scanner(myObj)) {
 	        while (myReader.hasNextLine()) {
 	          String data = myReader.nextLine();
-	          System.out.println(data);
+	          //System.out.println(data);
 	          String[] dataParts = data.split(",");
 	          if(dataParts.length == 7) {
 	        	  EmployeeList.add(new EmployeeRecord(
@@ -30,9 +30,9 @@ public class EmployeeDataFileReader {
 	        			  Float.parseFloat(dataParts[5]),
 	        			  Float.parseFloat(dataParts[6])
 	        			));
-	        	  System.out.println("Employee added to system");
+	        	  //System.out.println("Employee added to system");
 	          }else {
-	        	  System.out.println("This data does not have 7 data pieces");
+	        	  System.out.println("This data does not have correct amount of data");
 	          }
 	        }
 	      } catch (FileNotFoundException e) {
@@ -50,7 +50,7 @@ public class EmployeeDataFileReader {
 	
 		ArrayList<EmployeeRecord> ArrayList= reader.returnArrayFromFile();
 		
-    //Export functionality example
+		//Export functionality example
 		exportToCSV exportToCSV = new exportToCSV();
 		exportToCSV.dataToCSV(ArrayList, "employeeData.csv");
     
@@ -68,6 +68,17 @@ public class EmployeeDataFileReader {
             System.out.println(em.toString() + " | Calculated Salary: " + em.calcHourlySalary());
         }
 		System.out.println("Selection Sort Running Time: " + (endTime - startTime) + "ms");
-	}
 
+        System.out.println("\n--- Sorting Employees by Name (Quick Sort) ---");
+
+		startTime = System.currentTimeMillis();
+		QuickSort.sort(employeeArray);
+		endTime = System.currentTimeMillis();
+
+		for (EmployeeRecord em : employeeArray) {
+		    System.out.println(em.toString());
+		}
+
+		System.out.println("Quick Sort Running Time: " + (endTime - startTime) + "ms");
+	}
 }
